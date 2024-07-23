@@ -37,12 +37,16 @@ Start Content
       <div class="row g-4 g-md-3  align-items-center">
         <div class="col-md-auto order-md-last">
           <div class="bannerUserImg">
-            <!-- <img src="{{me.userprofile.avatar.url}}" alt="{{me.first_name|title}} {{me.last_name|title}} avatar"> -->
+            {% if me.userprofile.avatar %}
+              <img src="{{ me.userprofile.avatar.url }}" alt="{{ me.first_name|title }} {{ me.last_name|title }} avatar">
+            {% else %}
+              <img src="C:\Users\91623\Desktop\portfolio\20230122_203133.jpg" alt="Default avatar">
+            {% endif %}
           </div>
         </div>
         <div class="col-md">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}} </br></h1>
+            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}} </h1>
             <p>{{me.userprofile.bio}}</p>
             <div class="bannerBtnCol">
               <div class="row">
